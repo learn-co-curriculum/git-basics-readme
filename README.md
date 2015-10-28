@@ -78,6 +78,6 @@ Here you can add a commit message which would look like this:
 After saving and exiting this file, Git creates your commit with the commit message.
 
 Alternatively, you can pass `git commit` a message flag like this:
-git commit -m "this is our commit message"
+`git commit -m "this is our commit message"`
 
 After hitting enter, Git will commit this the same way as before.
