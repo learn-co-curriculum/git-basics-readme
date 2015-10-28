@@ -36,4 +36,48 @@ Maybe you wanted to say 'git add .'?
 There are two common ways to tell `git add` what to track.
 The first way, as the message before specificed is through `.`. When you pass `.` to `git add` you are saying "track all of the files in the current directory". The second most common way is by passing the actual file name, such as `git add index.html`. In this case we are specifically telling it to track `index.html` and ignore everything else.
 
+After we add our files, we can check our status again with `git status`. Now we will see:
+
+```bash
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   index.html
+```
+Great, it is showing a new file to commit, which we will do next.
+
 ###`git commit`
+
+Now that our staging area is set up, we can commit our changes. Remember that anything still unstaged, meaning any files that you haven't yet added, will not be committed. If we type `git commit` into our terminal, it will launch your default text editor with the following message
+
+```
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   index.html
+#
+```
+Here you can add a commit message which would look like this:
+
+```
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#	new file:   index.html
+#
+"this is our commit message"
+```
+After saving and exiting this file, Git creates your commit with the commit message.
+
+Alternatively, you can pass `git commit` a message flag like this:
+git commit -m "this is our commit message"
+
+After hitting enter, Git will commit this the same way as before.
