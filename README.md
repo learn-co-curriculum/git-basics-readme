@@ -1,101 +1,151 @@
-##Git Repository Basics
+# Git Repository Basics
 
-###Objectives
+## Objectives
+
 1. Define git and explain how it helps programmers control and manage changes
 2. Understand how to initialize a new git repository with `git init`
 2. Understand how to check the state of your files using `git status`
 3. Understand how to stage files to commit using `git add` and `git commit`
 
+## Introduction: What Is Version Control?
 
-###Overview
-This lesson is an intro to git and basic commands to get started.
+> “The past is never where you think you left it.” — [Katherine Anne Porter](http://en.wikipedia.org/wiki/Katherine_Anne_Porter)
 
-###`git init`
+Version Control is the process of storing multiple versions of a single project, allowing each version to be recalled at a later date. Version Control basically allows you to move back-and-forth through the timeline of changes to your code called "commits."
 
-First things first, we need to convert our project folder (let's call it tinder_for_cats) from a normal directory, into a git controlled directory. How can we do this? We can use `git init`. This command initializes a new git repository in your current directory. So when we change into our tinder_for_cats directory and type `git init`, we will create a new subdirectory called `.git`. The output in your terminal will read "Initialized empty Git repository in `/your/path/here/tinder_for_cats/.git/`" This subdirectory will contain everything needed to start tracking your file changes. Tracking is how Git knows about what files are being created or changed. However, at this point, nothing in your project is actually being tracked. So if you create a new file inside your `app` directory called `index.html`, Git will not know about it. In order to start tracking files we need another command, which we will talk about shortly.
+There are a lot of different ways to do version control - you could save a new file every time you make a change, timestamp that file, and place all of those files into a timestamped folder. You could track all of your changes in a spreadsheet with copious notes. Sounds like a lot of work... Or you could use dedicated version control software. Guess which one programmers do?
 
-***Note***
-You don't need to do anything with the .git directory. It'll remain hidden, just remember that if a directory has a .git directory inside of it, it is controlled by git.
+## Why Use Version Control?
 
-###`git status`
-Before we move on to actually tracking our files, let's take a look at `git status`. This command, as the name implies, gives the status of your files. Using our example before, when we initialize our new `.git` subdirectory inside our `tinder_for_cats` directory and create our `index.html` file, if we type `git status` in our terminal it will read.
+Let's think about the future for a second. It's a year or two down the road and you're working at your dream job (YAY!). You just deployed a new chat feature for the app you're working on. Suddenly, your boss runs over to your desk. "Wait! We can't deploy the chat yet! Revert! Revert!"
 
-```bash
+What do you do? You need to find all of the new code you pushed to the server and delete it. Then you need to find the old code, test it and re-upload it. So much work to do. Well, since you used version control software, it's as easy as 123. Actually, it's as easy as `git reset --hard <commit id>`... but we'll get to that later. Using version control is useful because it allows you to easily rollback to a previous version of your application, saving you a ton of extra work and time.
+
+There are a lot of advantages to version control. It's great way to keep a backup of your work, it facilitates collaboration, and gives you the freedom to experiment and try new things without messing up the code base.
+
+## Local vs Remote Version Control
+
+A local version control system stores all of the information on your computer, locally. This system works great while you work on a project by yourself. It becomes cumbersome when you attempt to collaborate, however. And storing source code only on your computer is a bad idea because what if you lose your computer or spill a bunch of coffee on it.
+
+Some organizations use a centralized repository on a company server. Think of a repository as a big folder that stores all of the files of a particular project. It is simply the location where a project's data is stored. Users pull only the files they need to work on from the server. The advantage is that multiple people can collaborate and work on the same project at once. The disadvantage to this process is that a user must be connected to the network in order to work on the project.
+
+There is a third system, the distributed version control system. In a distributed system, all users have a complete copy of the entire repository. This means that you can work on the project independent of any kind of network connection. When you get  back to a location with a connection, you can push your changes to the server and merge with the server's repository.
+
+## Meet Git
+
+Git is the distributed version control system that began in 2005 and has quickly grown to be one of the most widely used version control systems in the industry. Because so many companies use Git, it's important that you get used to working with it. We also use GitHub, a popular remote repository hosting service built to integrate seamlessly with Git.
+
+So how do you use Git?
+
+## Creating a Repository with `git init`
+
+You want to get started on a project that's going to be the next big thing. The first step you take is you make a new directory on your computer, probably in your development directory. From your terminal and your home directory you type:
+
+```
+~ $ mkdir next-big-thing
+~ $ cd next-big-thing
+next-big-thing $ ls
+
+```
+
+You made the directory with `mkdir next-big-thing` and then moved into it by changing your directory with `cd next-big-thing`. You typed `ls` to see all the files and folders in your brand new project and as expected, it was empty. But this directory, `next-big-thing` is where you're going to be putting all your code.
+
+The first thing you should do is transform this directory into a Git-enabled directory that can keep track of all the changes to your code and allow you to interact with other Git remotes such as GitHub. How? Use `git init`.
+
+`git init` initializes a new git repository in your current directory. Type `git init` from within your `next-big-thing` project directory.
+
+```
+next-big-thing $ git init
+Initialized empty Git repository in /Users/avi/next-big-thing/.git/
+```
+
+After typing `git init` the output in your terminal reads "Initialized empty Git repository in `/your/path/here/next-big-thing/.git/`" telling you git made a new repository in `next-big-thing` within the hidden `.git` folder. This hidden directory, `.git`, is what git uses to keep track of all the different versions of your code.
+
+You don't need to do anything with the `.git` directory. It'll remain hidden, just remember that if a directory has a .git directory inside of it, it is controlled by git. It's also nice to know there is no magic with code, if git is keeping track of multiple versions of files that you can't see, git has to be putting them somewhere inside your computer. That somewhere is `.git`.
+
+At this point though, git is not keeping track of any of the files or folders in your project.
+
+## Checking the status of your repository with `git status`
+
+Let's start our project out by creating a `README.md` that describes the project. Make your new file by typing `touch README.md`, you won't see any output after `touch` but you will see a new file has been creating by typing `ls`.
+
+```
+next-big-thing $ touch README.md
+next-big-thing $ ls
+README.md
+```
+
+Now that we've made a change to our project, we want to keep track of that change with git. The first thing to do is to see what git thinks our current repository looks like, what changes does it see, what status does it think our project is in? Try `git status`.
+
+```
+next-big-thing $ git status
+On branch master
+
+Initial commit
+
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	index.html
+	README.md
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-Here Git is telling us, "I see you've created a new file called `index.html`, but it's not yet being tracked. In order to track it, use `git add`.
 
-***Note***
-There are a few stages files can be in. Un-modified, modified (but un staged) or staged. Whenever you are done, to create a "snapshot" of your work, you commit your code. Committing only grabs the staged materials.
+Git is telling you that this is a brand new repository and right now git isn't keeping track of any of the files in your directory.
 
-###`git add`
-The `git add` command is how you stage files. Staging is a way of saying your files are ready to be committed. However, this command has to be told what to add. If you just type `git add` by itself in your terminal you will see:
+Whenever you want to see what the status of your git repository is, which is a task you'll want to do quite often, type `git status`. We'll be discussing the various states a repository can be in and how to change states shortly.
 
-```bash
-Nothing specified, nothing added.
-Maybe you wanted to say 'git add .'?
+## Keeping track of files with `git add`
+
+You have to explicitly tell git about all the files you want it to keep track of, of all the files you want git to consider to be part of your project. We do this by adding the files to our git repository with `git add <filename or path>`. To add our new `README.md` to the repository and check the status we could type:
+
 ```
-There are two common ways to tell `git add` what to track.
-The first way, as the message before specificed is through `.`. When you pass `.` to `git add` you are saying "track all of the files in the current directory". The second most common way is by passing the actual file name, such as `git add index.html`. In this case we are specifically telling it to track `index.html` and ignore everything else.
+next-big-thing $ git add README.md
+next-big-thing $ git status
+On branch master
 
-After we add our files, we can check our status again with `git status`. Now we will see:
+Initial commit
 
-```bash
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-	new file:   index.html
-```
-Great, it is showing a new file to commit, which we will do next.
-
-###`git commit`
-
-Now that our staging area is set up, we can commit our changes. Remember that anything still unstaged, meaning any files that you haven't yet added, will not be committed. If we type `git commit` into our terminal, it will launch your default text editor with the following message
-
-```
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#	new file:   index.html
-#
-```
-Here you can add a commit message which would look like this:
-
-```
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#	new file:   index.html
-#
-this is our commit message
+	new file:   README.md
 ```
 
-After saving and exiting this file, Git creates your commit with the commit message.
+You can now see that git is ready to keep track of `README.md` and recognizes that the file is a brand new file for this repository. However, just because we've informed git that there is a new file, we still haven't informed git that this new file is considered a new change to our repository. We create changes in our repository by making something called a "commit".
 
-Alternatively, you can pass `git commit` a message flag like this:
-`git commit -m "this is our commit message"`
+**To capture all changes in a directory, the common pattern, type `git add .` where the `.` refers to the entire current directory.**
 
-After hitting enter, Git will commit this the same way as before. Like a good unix command, if everything worked fine, then nothing gets printed out.
+## Making a new version of your code with `git commit`
 
-***Note***
-We generally just use the `-m` way of adding commits with a message. When figuring out what message to write, just do a quick one line description of what your code change does. Mabye it's "implement log in functionality" or something more granular like "create forgot password link". Keep it short and keep it to the point!  
+Git allows us to mark the changes we make in our code as versions called a commit. A commit is like a frozen copy of your code at a given point. Once you've made a commit, you can always move back to the version of your code at that exact moment.
 
-Also, if you try to commit a clean working directory, meaning nothing is staged it will output:
+Now that git is aware of a change to our project, the new file `README.md`, let's make the addition of this file as the first official version, the first commit, of our project, using `git commit`. Whenever we make a commit, we must supply a commit message describing the version or commit. This message log makes it easy for us to know what each commit or version is all about.
 
-```bash
+You can make a commit adding the `README.md` with: `git commit -m "Added README.md"`.
+
+We tell the `git commit` command that our commit message, represented by the `-m` flag, is `"Added README.md"`.
+
+```
+next-big-thing $ git commit -m "Added README.md"
+[master (root-commit) e55477d] Added README.md
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+```
+
+Git tells us that it created a new version of our code, represented by the esoteric SHA `e55477d` (basically how git keeps tracks of versions). The commit had 1 file changed. With that commit made and no other changes to our files, if we ask git what the status of our project is now, we'll see that it is at a "Clean State", that there is nothing to commit and no new changes.
+
+```
+next-big-thing $ git status
 On branch master
 nothing to commit, working directory clean
 ```
+
+**To capture all changes in a commit, the common pattern, type `git commit -am "Your commit message"` where the `-a` refers to 'all the changes' and `-m` (combined, `-am`), tells git about the commit message, `"Your commit message"`.**
+
+## Conclusion
+
+1. To make a new git repository out of a directory, something you only ever do once, you use `git init`.
+2. Whenever you make a change to a file or create a new file, you have to tell git to keep track of that change by staging it via the `git add` command. **To capture all changes in a directory, the common pattern, type `git add .` where the `.` refers to the entire current directory.**
+3. Once your changes have been added and staged to be committed, you can make a commit with the `git commit` command. **To capture all changes in a commit, the common pattern, type `git commit -am "Your commit message"` where the `-a` refers to 'all the changes' and `-m` (combined, `-am`), tells git about the commit message, `"Your commit message"`.**
+4. To check the status of a repository use `git status`.
