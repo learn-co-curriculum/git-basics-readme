@@ -145,7 +145,9 @@ nothing to commit, working directory clean
 
 ## Conclusion
 
-1. To make a new git repository out of a directory, something you only ever do once, you use `git init`.
+1. To make a new git repository out of a directory, something you only ever do once per project, you use `git init`. Be careful about making an entire directory, like your home directory our your desktop, into a git repository accidentally. Make sure you only type `git init` within the directory you want to be considered a repository.
 2. Whenever you make a change to a file or create a new file, you have to tell git to keep track of that change by staging it via the `git add` command. **To capture all changes in a directory, the common pattern, type `git add .` where the `.` refers to the entire current directory.**
 3. Once your changes have been added and staged to be committed, you can make a commit with the `git commit` command. **To capture all changes in a commit, the common pattern, type `git commit -am "Your commit message"` where the `-a` refers to 'all the changes' and `-m` (combined, `-am`), tells git about the commit message, `"Your commit message"`.**
 4. To check the status of a repository use `git status`.
+
+If you've followed these instructions you are left with a directory, `next-big-thing` that is a git repository. You can just delete this directory, ignore it, or use it as a sandbox to experiment with git.
