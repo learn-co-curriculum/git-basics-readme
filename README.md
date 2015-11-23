@@ -67,7 +67,7 @@ At this point though, git is not keeping track of any of the files or folders in
 
 ## Checking the status of your repository with `git status`
 
-Let's start our project out by creating a `README.md` that describes the project. Make your new file by typing `touch README.md`, you won't see any output after `touch` but you will see a new file has been creating by typing `ls`.
+Let's start our project out by creating a `README.md` that describes the project. Make your new file by typing `touch README.md`, you won't see any output after `touch` but you will see a new file has been created by typing `ls`.
 
 ```
 next-big-thing $ touch README.md
