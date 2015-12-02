@@ -151,3 +151,5 @@ nothing to commit, working directory clean
 4. To check the status of a repository use `git status`.
 
 If you've followed these instructions you are left with a directory, `next-big-thing` that is a git repository. You can just delete this directory, ignore it, or use it as a sandbox to experiment with git.
+
+<a href='https://learn.co/lessons/git-basics-readme' data-visibility='hidden'>View this lesson on Learn.co</a>
