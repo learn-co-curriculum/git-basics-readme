@@ -44,7 +44,7 @@ You want to get started on a project that's going to be the next big thing. The 
 ```
 ~ $ mkdir next-big-thing
 ~ $ cd next-big-thing
-next-big-thing $ ls
+~ $ ls
 
 ```
 
