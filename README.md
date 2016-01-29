@@ -152,4 +152,4 @@ nothing to commit, working directory clean
 
 If you've followed these instructions you are left with a directory, `next-big-thing` that is a git repository. You can just delete this directory, ignore it, or use it as a sandbox to experiment with git.
 
-<a href='https://learn.co/lessons/git-basics-readme' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/git-basics-readme' title='Git Repository Basics'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
