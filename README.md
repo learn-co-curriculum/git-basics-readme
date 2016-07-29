@@ -103,7 +103,7 @@ next-big-thing $ git commit -m "Added README.md"
  create mode 100644 README.md
 ```
 
-Git tells us that it created a new version of our code, represented by the esoteric SHA `e55477d` (basically how Git keeps tracks of versions). The commit changed 1 file. With that commit made and no other changes to our files, if we ask Git what the status of our project is now, we'll see that it is at a "Clean State", that there is nothing to commit and no new changes.
+Git tells us that it created a new version of our code, represented by the esoteric SHA `e55477d` (basically how Git keeps track of versions). The commit changed 1 file. With that commit made and no other changes to our files, if we ask Git what the status of our project is now, we'll see that it is at a "Clean State", that there is nothing to commit and no new changes.
 
 ```
 next-big-thing $ git status
@@ -123,3 +123,5 @@ nothing to commit, working directory clean
 If you've followed these instructions, your `next-big-thing` directory is now a Git repository. You can retain the directory as a sandbox for Git experimentation, or simply delete or ignore it.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/git-basics-readme' title='Git Repository Basics'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/git-basics-readme'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
