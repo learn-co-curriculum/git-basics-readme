@@ -3,11 +3,12 @@
 
 ## Objectives
 
-1. Define Git and explain how it helps programmers control and manage changes
-2. State initializing Git repository with `git init`
-3. Use `git status` to check the status of your repository 
-4. Recognize how to keep track of files with `git add`
-5. Use `git commit` to apply a message to the commit
+1. Define `git` and explain how it helps programmers track changes
+2. Use `git` to enhance your workflow
+3. State how to initialize a Git repository with `git init`
+4. Use `git status` to check the status of your repository 
+5. Recognize how to keep track of files with `git add`
+6. Create a commit with `git commit` and apply a commit message
 
 ## Problem Statement
 
@@ -25,34 +26,42 @@ important_presentation-final-final-FINAL.docx
 important_presentation-final-final-FINAL-SERIOUSLY.docx
 ```
 Luckily, there's a better way to keep track of versions of files and share them amongst 
-multiple parties without causing complete chaos or confusion.
+multiple parties without causing complete chaos or confusion without having to keep naming
+or renaming files in this manner!
 
-## Define Git and explain how it helps programmers control and manage changes
+## Define `git` and explain how it helps programmers track changes
 
-If you have a project that you've already started building on your local machine, 
-you will want to be able to start tracking your changes and storing these changes 
-somewhere accessible so that other developers can review or collaborate on the project--
-or just put it somewhere you can come back to it later, regardless of what may happen 
-to the physical files on your computer. This is where `git` comes in! `Git` will allow 
-the users to keep track of these changes and keep detailed tabs and backups of your project.
+Git is a widely used, collaborative, version control system that is optimized for building software projects, 
+whether commercial or open source. It logs changes in files on your computer and allows work to be coordinated
+among multiple people. It is primarily used for source code management in software development, but it can be
+used to keep track of changes in any set of files. It's fast, secure, and supports functionality that allows
+for non-linear workflows.
 
-Now that we've established what `git` does and how useful it can be, how 
-can we start using it? I you haven't already generated some files on your local machine at 
-this point--You can do so by using these commands to create a project:
+## Use `git` to enhance your workflow
+
+While building a project on your local machine, you may want to be able to keep a running log of your 
+changes as illustrated in the problem statement, as well as store these changes somewhere accessible 
+for other developers to review or collaborate with you --or just put it somewhere you can come back 
+to it later, regardless of  what may happen to the physical files on your computer. This is where 
+`git` can save  the day! `Git` will allow you to keep track of all changes to your files, and keep 
+detailed tabs and backups of each on your project.
+
+Now that we've established what `git` does and its potential usefulness, how can we start 
+using it? If you haven't already generated some files on your local machine at this point--
+You can do so by using these commands to create a project:
 
 ```
 ~ $ mkdir my-git-project //Creates new directory
 ~ $ cd my-git-project //Moves into the newly created directory
 ```
 
-The files are available now, so how do we get them in the cloud so we can collaborate with 
-other developers or backup your progress thus far? 
+Now that the files are available, how do we get them in the cloud so we can collaborate with other 
+developers or backup your progress thus far? 
 
-## State initializing Git repository with `git init`
+## State how to initialize a Git repository with `git init`
 
-Make sure you are in the directory where you want to initiliaze `git` on your computer. If 
-you would like control, you can use a few commands to get things up and running quickly. In 
-your terminal type:
+Move into your new directory where you want to initialize a new instance of `git`. You can use 
+a few commands to get things up and running quickly. In your terminal type:
 
 ```
 my-git-project $ git init
@@ -128,7 +137,7 @@ by making "commits."
 
 **To capture all changes in a directory –– the standard way to do it –– type `git add .`, where the `.` refers to the entire current directory.**
 
-## Use `git commit` to apply a message to the commit
+## Create a commit with `git commit` and apply a commit message
 
 Git allows us to mark changes to our code as different versions, or, in Git speak, "commits." A commit 
 is like a frozen copy of your code at a given point. Once you've made a commit, you can always easily
