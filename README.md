@@ -1,11 +1,11 @@
 # Git Repository Basics
 
 ## Problem Statement
-git is a a widely used version control system, a program program used to track
+`Git` is a a widely used version control system. It is a program used to track
 changes in a set of files. While building a project on our local machine, we
 may want to be able to keep a running log of our changes as well as store these
 changes somewhere accessible, regardless of what may happen to the physical files
-on our computer. This is where `git` can save  the day! Sounds useful right? So,
+on our computer. This is where `git` can save the day! Sounds useful right? So,
 how do we set this up?
 
 ## Objectives
@@ -19,9 +19,9 @@ how do we set this up?
 ## Use `git` to Enhance the Way We Work
 
 Now that we've established the usefulness of `git`, we want to start using it.
-`Git` will allow we to keep track of all changes to our files. `Git` operates
-on a per-directory setup. We'll need to create a new directory and then enter it. 
-Go to our terminal and type the following:
+`Git` will allow we to keep track of all changes to our files. It operates
+on a per-directory setup. We'll need to create a new directory and then change into
+that directory. Go to our terminal and type the following:
 
 **REMEMBER** Don't type the `$`, that's the universal symbol for a command prompt.
 It's how technical documentation says "Here's a thing for the shell to interpret."
@@ -30,9 +30,6 @@ It's how technical documentation says "Here's a thing for the shell to interpret
 ~ $ mkdir my-git-project //Creates new directory
 ~ $ cd my-git-project //Moves into the newly created directory
 ```
-
-Now that the files are available, how do we get them in the cloud so we can collaborate
-with other developers or backup our progress thus far?
 
 ## State How to Manage Files in a Directory With `git init`
 
