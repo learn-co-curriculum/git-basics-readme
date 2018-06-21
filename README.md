@@ -166,7 +166,7 @@ to add another commit with this new set of changes:
 my-git-project $ git commit -m "Updated README.md"
 [master (root-commit) e55477d] Updated README.md
  1 file changed, 4 insertions(+), 0 deletions(2)
- create mode 100645 README.md
+```
 
 **A faster way to capture all outstanding changes in a commit is to use
 `git commit -am "Our commit message"`, where the `a` refers to adding 'all changes'
