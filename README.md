@@ -138,12 +138,12 @@ Whenever we make a commit, we must supply a commit message describing the versio
 or commit. This message log makes it easy for us to figure out what each commit
 or version is all about.
 
-To make our first commit, type: `git commit -m "Added README.md"`. This tells
-Git that our commit message, represented by the `-m` flag, is `"Added README.md"`.
+To make our first commit, type: `git commit -m "Initial commit"`. This tells
+Git that our commit message, represented by the `-m` flag, is `"Initial commit"`.
 
 ```
-my-git-project $ git commit -m "Added README.md"
-[master (root-commit) e55477d] Added README.md
+my-git-project $ git commit -m "Initial commit"
+[master (root-commit) e55477d] Initial commit
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 README.md
 ```
@@ -152,13 +152,21 @@ We can see that `git` has created a new version of our code, represented by the
 _SHA_ `e55477d` (the identification system that Git uses to keep track
 of versions). The commit changed 1 file. Now, if we type `git status` ask to
 see the status of our project, with no other changes to any files, we'll see
-that it is at a "Clean State", and there is nothing to commit and no new changes.
+that it is at a "clean state", and there is nothing to commit and no new changes.
 
 ```
 my-git-project $ git status
 On branch master
 nothing to commit, working directory clean
 ```
+If we make another change, for example, to README.md, we can follow the same steps
+to add another commit with this new set of changes:
+
+```
+my-git-project $ git commit -m "Updated README.md"
+[master (root-commit) e55477d] Updated README.md
+ 1 file changed, 4 insertions(+), 0 deletions(2)
+ create mode 100645 README.md
 
 **A faster way to capture all outstanding changes in a commit is to use
 `git commit -am "Our commit message"`, where the `a` refers to adding 'all changes'
