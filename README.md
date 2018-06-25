@@ -1,82 +1,121 @@
 # Git Repository Basics
 
+## Problem Statement
+`Git` is a a widely-used version control system. It is a program used to track
+changes in a set of files. While building a project on our local machine, we
+may want to be able to keep a running log of our changes as well as store these
+changes somewhere accessible, regardless of what may happen to the physical files
+on our computer. This is where `git` can save the day! Sounds useful right? So,
+how do we set this up?
+
 ## Objectives
 
-1. Define Git and explain how it helps programmers control and manage changes
-2. Initialize a new Git repository with `git init`
-3. Check the state of your files using `git status`
-4. Stage files to commit using `git add` and `git commit`
+1. Use `git` to enhance the way we work
+2. State how to manage files in a directory with `git init`
+3. Use `git status` to check the status of our repository
+4. Recognize how to keep track of files with `git add`
+5. Create a commit with `git commit` and apply a commit message
 
-So, how do you use Git?
+## Use `git` to Enhance the Way We Work
 
-## Creating a Repository with `git init`
+Now that we've established the usefulness of `git`, we want to start using it.
+`Git` will allow us to keep track of all changes to our files. It operates
+on a per-directory setup. We'll need to create a new directory and then change into
+that directory. Go to our terminal and type the following:
 
-You want to get started on a project that's going to be the next big thing. The first step is to make a new directory on your computer, probably in your development directory. To do so in the terminal, type:
-
-```
-~ $ mkdir next-big-thing
-~ $ cd next-big-thing
-next-big-thing $ ls
-
-```
-
-You created a new directory with `mkdir next-big-thing` and then moved into it by changing your directory with `cd next-big-thing`. You typed `ls` to see all the files and folders in your brand new project, and, as expected, it was empty. But this directory, `next-big-thing`, is where you're going to put all your code.
-
-The first step is to transform this directory into a Git-enabled directory, which will allow it to keep track of all the changes to your code and interact with other Git remotes such as GitHub. How do we accomplish this? It's as simple as `git init`.
-
-`git init` initializes a new Git repository in your current directory. Type `git init` from within your `next-big-thing` project directory.
+**REMEMBER** Don't type the `$`, that's the universal symbol for a command prompt.
+It's how technical documentation says "Here's a thing for the shell to interpret."
 
 ```
-next-big-thing $ git init
-Initialized empty Git repository in /Users/avi/next-big-thing/.git/
+~ $ mkdir my-git-project
 ```
 
-After entering `git init`, the output in your terminal reads `Initialized empty Git repository in /your/path/here/next-big-thing/.git/`. Git is letting you know that it created a new repository within the hidden `.git` folder in `next-big-thing`. This hidden directory, `.git`, is what Git uses to keep track of all the different versions of your code.
-
-You don't need to do anything with the `.git` directory –– it'll remain hidden. Just remember that if a directory has a `.git` directory inside of it, it is controlled by Git. It's also nice to know there's no magic behind the process: if Git is keeping track of multiple versions of files that you can't see, Git has to be putting them somewhere inside your computer. That somewhere is `.git`.
-
-At this point, though, there's nothing for Git to keep track of. We'll have to create some files and folders in our project first.
-
-## Checking the status of your repository with `git status`
-
-Let's start our project out by creating a `README.md` that describes the project. Make your new file by typing `touch README.md` from within the `next-big-thing` directory. You won't see any output after `touch`, but you will see a new file has been created if you type `ls`.
+This command creates new directory. Then:
 
 ```
-next-big-thing $ touch README.md
-next-big-thing $ ls
+~ $ cd my-git-project
+```
+
+This command moves into the newly created directory.
+
+## State How to Manage Files in a Directory With `git init`
+
+Now that we're in the directory where we want `git` to watch for changes (adding,
+removing, and editing files) let's set up this directory by _initializing_ it.
+In our terminal type `git init`. It should look like the following:
+
+```
+my-git-project $ git init
+Initialized empty Git repository in /Users/avi/my-git-project/.git/
+```
+
+After entering `git init`, the output in our terminal reads `Initialized empty Git repository in /our/path/here/my-git-project/.git/`. `Git` is letting we know that it created
+a new repository within the hidden `.git` folder in `my-git-project`. This hidden
+directory, `.git`, is what `git` uses to keep track of our log of changes. So, don't
+go in there and start randomly deleting things!
+
+## Use `git status` to Check the Status of Our Repository 
+
+Now we have `git` watching this directory, let's see what `git` can tell us about
+the directory with `git status`. Without any files added yet, we'll see:
+
+```
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+Let's create a `README.md` that describes the project. Make our new file by
+typing `touch README.md` from within the `my-git-project` directory. We won't
+see any output after `touch`, but we will see a new file has been created if
+we type `ls`, which gives a list of all the files in the directory.
+
+```
+my-git-project $ touch README.md
+my-git-project $ ls
 README.md
 ```
 
-Now that we've created our first project file, let's have Git start tracking changes. The first thing to do is to see what Git thinks our current repository looks like; that is, what changes it sees or what it thinks the current status of our project is. Try `git status`.
+With at least 1 new project file we can enable `git` to start tracking changes.
+Type `git status`. `Git` will show us what our current repository looks like
+and what changes it sees.
 
 ```
-next-big-thing $ git status
+my-git-project $ git status
 On branch master
 
-Initial commit
+No commits yet
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
 	README.md
 
-nothing added to commit but untracked files present (use "git add" to track)
+nothing added to commit but untracked files present (use `git add` to track)
 ```
 
-Git is telling you that this is a brand new repository and right now Git isn't keeping track of any of the files in your directory.
+As expected, `git` confirms that it's not watching or tracking anything in this
+directory. Let's change that!
 
-Whenever you want to check the status of your Git repository –– which you'll probably do quite often –– type `git status`. We'll discuss the various states a repository can be in and how to change states shortly.
+Whenever we want to check the status of our Git repository –– which
+we do quite often –– type `git status`. 
 
-## Keeping track of files with `git add`
+## Recognize How to Keep Track of Files with `git add`
 
-You have to explicitly tell Git about all the files you want it to keep track of– the files you want Git to consider as part of your project. We do this by adding the files to our Git repository with `git add <filename or path>`. To add our new `README.md` to the repository and check the status, we would type:
+Currently the file in our repository is not being tracked by `git` just yet.
+We have to tell `git` about all the files we want it to keep track
+of and consider as part of our project. We can do this by adding the files
+to our `git` repository with `git add <filename or path>`. To add our new
+`README.md` to the repository and check the status, we would type:
 
 ```
-next-big-thing $ git add README.md
-next-big-thing $ git status
+my-git-project $ git add README.md
+my-git-project $ git status
 On branch master
 
-Initial commit
+No commits yet
 
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
@@ -84,44 +123,74 @@ Changes to be committed:
 	new file:   README.md
 ```
 
-You can now see that Git is ready to keep track of `README.md` and recognizes that the file is new to this repository. However, while we've informed Git that there is a new file, we still haven't informed Git that this new file is considered a change to our repository. We create changes in our repository by making "commits."
+We can now see that `git` is ready to keep track of `README.md` and recognizes
+that the file is new to this repository. However, while we've informed `git` that
+there is a new file, we still haven't informed `git` that this new file is
+considered a change to our repository. We create changes in our repository
+by making "snapshots" or "commits."
 
 **To capture all changes in a directory –– the standard way to do it –– type `git add .`, where the `.` refers to the entire current directory.**
 
-## Cataloging a new version of your code with `git commit`
+## Create a Commit With `git commit` and Apply a Commit Message
 
-Git allows us to mark changes to our code as different versions, or, in Git speak, "commits." A commit is like a frozen copy of your code at a given point. Once you've made a commit, you can always easily revert to that version of your code as it existed at that exact moment.
+Git knows that the state of `README.md` is "to be recorded as part of this commit"
+because our last use of `git status` listed `README.md` under `Changes to be committed:`.
+That's why a _commit_ is composed of two steps: adding the files in the snapshot
+(_commit_) and then doing the commit with your message.
 
-Now that Git is aware of a change to our project –– the addition of `README.md` –– let's submit the first official version of our project using `git commit`. Whenever we make a commit, we must supply a commit message describing the version or commit. This message log makes it easy for us to figure out what each commit or version is all about.
-
-To make your first commit, type: `git commit -m "Added README.md"`. This tells Git that our commit message, represented by the `-m` flag, is `"Added README.md"`.
+To make our first commit, type: `git commit -m "Initial commit"`. This tells
+`git` that our commit message, represented by the `-m` flag, is `"Initial commit"`.
 
 ```
-next-big-thing $ git commit -m "Added README.md"
-[master (root-commit) e55477d] Added README.md
+my-git-project $ git commit -m "Initial commit"
+[master (root-commit) e55477d] Initial commit
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 README.md
 ```
 
-Git tells us that it created a new version of our code, represented by the esoteric SHA `e55477d` (basically how Git keeps track of versions). The commit changed 1 file. With that commit made and no other changes to our files, if we ask Git what the status of our project is now, we'll see that it is at a "Clean State", that there is nothing to commit and no new changes.
+We can see that `git` has created a new version of our code, represented by the
+_SHA_ `e55477d` (_SHA_s are the identification system that `git` uses to keep track
+of versions). The commit changed 1 file. Now, if we type `git status` ask to
+see the status of our project, with no other changes to any files, we'll see
+that it is at a "clean state", and there is nothing to commit and no new changes.
 
 ```
-next-big-thing $ git status
+my-git-project $ git status
 On branch master
 nothing to commit, working directory clean
 ```
+If we make another change, for example, to README.md, we can add another commit 
+with this new set of changes with `git commit -am`:
 
-**The best way to capture all outstanding changes in a commit is with `git commit -am "Your commit message"`, where `-a` refers to 'all changes' and `-m` (combined as `-am`) assigns a commit message of `"Your commit message"`.**
+```
+my-git-project $ git commit -am "Updated README.md"
+[master (root-commit) e55477d] Updated README.md
+ 1 file changed, 4 insertions(+), 0 deletions(2)
+```
+
+**A faster way to capture all outstanding changes for files that are _already being tracked_ in a commit is to use
+`git commit -am "Our commit message"`, where the `a` refers to adding 'all changes'
+and `m` assigns a commit message of `"Our commit message"`.**
+
+Commits are amazingly powerful in `git`. With a commit you can move your project
+back to a past commit and throw away bad ideas. You can tell `git` to create a new
+"parallel universe" based off of a past commit and you can start working in that
+universe and decide later to keep that work or throw it away. We won't cover
+these features in this lesson, but they exist, and are very useful.
 
 ## Conclusion
 
-1. To make a new Git repository out of a directory –– which you'll only have to do once per project –– use `git init`. Be careful about making an entire directory, like your home directory or your desktop, into a Git repository accidentally. Make sure you only type `git init` within the directory you want Git to track.
-2. Whenever you make a change to a file or create a new file, you have to tell Git to keep track of that change by staging it via the `git add` command. **To capture all changes in a directory, type `git add .`, where the `.` refers to the entire current directory.**
-3. Once your changes have been added and staged, you can make a commit with the `git commit` command. **To capture all outstanding changes in a commit, type `git commit -am "Your commit message"`, where `-a` refers to 'all changes' and `-m` (combined as `-am`) assigns a commit message of `"Your commit message"`.**
-4. To check the status of a repository, use `git status`.
+To make a new `git` repository out of a directory –– which we'll only have to
+do once per project –– use `git init`. Be careful about making an entire directory,
+like our home directory or our desktop, into a `git` repository accidentally. Make
+sure you only type `git init` within the directory you want `git` to track. Whenever
+you make a change to a file or create a new file, you can check the status of these
+changes with with `git status`. When you're ready to keep track of changes, you can
+add them individually with the `git add <filename or path>` command, or collectively
+with the `git add .` command. Once your changes have been added, use `git commit -m`
 
-If you've followed these instructions, your `next-big-thing` directory is now a Git repository. You can retain the directory as a sandbox for Git experimentation, or simply delete or ignore it.
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/git-basics-readme' title='Git Repository Basics'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
+If we've followed these instructions, our `my-git-project` directory is now a `git`
+repository. We can retain the directory as a sandbox for Git experimentation, or
+delete or ignore it.
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/git-basics-readme'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
