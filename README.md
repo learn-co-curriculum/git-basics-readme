@@ -1,7 +1,7 @@
 # Git Repository Basics
 
 ## Problem Statement
-`Git` is a a widely used version control system. It is a program used to track
+`Git` is a a widely-used version control system. It is a program used to track
 changes in a set of files. While building a project on our local machine, we
 may want to be able to keep a running log of our changes as well as store these
 changes somewhere accessible, regardless of what may happen to the physical files
@@ -27,22 +27,29 @@ that directory. Go to our terminal and type the following:
 It's how technical documentation says "Here's a thing for the shell to interpret."
 
 ```
-~ $ mkdir my-git-project //Creates new directory
-~ $ cd my-git-project //Moves into the newly created directory
+~ $ mkdir my-git-project
 ```
+
+This command creates new directory. Then:
+
+```
+~ $ cd my-git-project
+```
+
+This command moves into the newly created directory.
 
 ## State How to Manage Files in a Directory With `git init`
 
 Now that we're in the directory where we want `git` to watch for changes (adding,
 removing, and editing files) let's set up this directory by _initializing_ it.
-In our terminal type:
+In our terminal type `git init`. It should look like the following:
 
 ```
 my-git-project $ git init
 Initialized empty Git repository in /Users/avi/my-git-project/.git/
 ```
 
-After entering `git init`, the output in our terminal reads `Initialized empty Git repository in /our/path/here/my-git-project/.git/`. Git is letting we know that it created
+After entering `git init`, the output in our terminal reads `Initialized empty Git repository in /our/path/here/my-git-project/.git/`. `Git` is letting we know that it created
 a new repository within the hidden `.git` folder in `my-git-project`. This hidden
 directory, `.git`, is what `git` uses to keep track of our log of changes. So, don't
 go in there and start randomly deleting things!
@@ -93,11 +100,11 @@ As expected, `git` confirms that it's not watching or tracking anything in this
 directory. Let's change that!
 
 Whenever we want to check the status of our Git repository –– which
-we'll probably do quite often –– type `git status`. 
+we do quite often –– type `git status`. 
 
 ## Recognize How to Keep Track of Files with `git add`
 
-Currently the file in our repository are not being tracked by `git` just yet.
+Currently the file in our repository is not being tracked by `git` just yet.
 We have to tell `git` about all the files we want it to keep track
 of and consider as part of our project. We can do this by adding the files
 to our `git` repository with `git add <filename or path>`. To add our new
@@ -126,13 +133,7 @@ by making "snapshots" or "commits."
 
 ## Create a Commit With `git commit` and Apply a Commit Message
 
-Commits are amazingly powerful in `git`. With a commit you can move your project
-back to a past commit and throw away bad ideas. You can tell `git` to create a new
-"parallel universe" based off of a past commit and you can start working in that
-universe and decide later to keep that work or throw it away. We won't cover
-these features in this lesson, but they exist, and are very useful.
-
-It knows that the state of `README.md` is to be recorded as part of this commit
+Git knows that the state of `README.md` is "to be recorded as part of this commit"
 because our last use of `git status` listed `README.md` under `Changes to be committed:`.
 That's why a _commit_ is composed of two steps: adding the files in the snapshot
 (_commit_) and then doing the commit with your message.
@@ -148,7 +149,7 @@ my-git-project $ git commit -m "Initial commit"
 ```
 
 We can see that `git` has created a new version of our code, represented by the
-_SHA_ `e55477d` (the identification system that `git` uses to keep track
+_SHA_ `e55477d` (_SHA_s are the identification system that `git` uses to keep track
 of versions). The commit changed 1 file. Now, if we type `git status` ask to
 see the status of our project, with no other changes to any files, we'll see
 that it is at a "clean state", and there is nothing to commit and no new changes.
@@ -167,9 +168,15 @@ my-git-project $ git commit -am "Updated README.md"
  1 file changed, 4 insertions(+), 0 deletions(2)
 ```
 
-**A faster way to capture all outstanding changes in a commit is to use
+**A faster way to capture all outstanding changes for files that are _already being tracked_ in a commit is to use
 `git commit -am "Our commit message"`, where the `a` refers to adding 'all changes'
 and `m` assigns a commit message of `"Our commit message"`.**
+
+Commits are amazingly powerful in `git`. With a commit you can move your project
+back to a past commit and throw away bad ideas. You can tell `git` to create a new
+"parallel universe" based off of a past commit and you can start working in that
+universe and decide later to keep that work or throw it away. We won't cover
+these features in this lesson, but they exist, and are very useful.
 
 ## Conclusion
 
@@ -185,7 +192,5 @@ with the `git add .` command. Once your changes have been added, use `git commit
 If we've followed these instructions, our `my-git-project` directory is now a `git`
 repository. We can retain the directory as a sandbox for Git experimentation, or
 delete or ignore it.
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/git-basics-readme' title='Git Repository Basics'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
 
 <p class='util--hide'>View <a href='https://learn.co/lessons/git-basics-readme'>Git Repository Basics</a> on Learn.co and start learning to code for free.</p>
