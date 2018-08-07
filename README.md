@@ -49,7 +49,7 @@ my-git-project $ git init
 Initialized empty Git repository in /Users/avi/my-git-project/.git/
 ```
 
-After entering `git init`, the output in our terminal reads `Initialized empty Git repository in /our/path/here/my-git-project/.git/`. `Git` is letting we know that it created
+After entering `git init`, the output in our terminal reads `Initialized empty Git repository in /our/path/here/my-git-project/.git/`. `Git` is letting us know that it created
 a new repository within the hidden `.git` folder in `my-git-project`. This hidden
 directory, `.git`, is what `git` uses to keep track of our log of changes. So, don't
 go in there and start randomly deleting things!
