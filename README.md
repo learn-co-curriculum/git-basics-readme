@@ -185,7 +185,7 @@ do once per project –– use `git init`. Be careful about making an entire dir
 like our home directory or our desktop, into a `git` repository accidentally. Make
 sure you only type `git init` within the directory you want `git` to track. Whenever
 you make a change to a file or create a new file, you can check the status of these
-changes with with `git status`. When you're ready to keep track of changes, you can
+changes with `git status`. When you're ready to keep track of changes, you can
 add them individually with the `git add <filename or path>` command, or collectively
 with the `git add .` command. Once your changes have been added, use `git commit -m`
 
